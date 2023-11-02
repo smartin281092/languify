@@ -30,10 +30,12 @@ class TranslationItem extends LitElement {
     .translation {
       font-weight: 500;
       filter: blur(10px);
+      overflow: display;
     }
 
     li:hover .translation {
       filter: blur(0px);
+      overflow: hidden;
     }
 
     .highlighted {
