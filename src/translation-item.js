@@ -43,6 +43,8 @@ class TranslationItem extends LitElement {
     this.isBlurred = true;
     this.addEventListener('mousedown', this.handleMouseDown.bind(this));
     this.addEventListener('mouseup', this.handleMouseUp.bind(this));
+    this.addEventListener('touchstart', this.handleMouseDown.bind(this));
+    this.addEventListener('touchend', this.handleMouseUp.bind(this));
   }
 
   static get properties() {
