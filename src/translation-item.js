@@ -17,6 +17,7 @@ class TranslationItem extends LitElement {
 
     span {
       transition: all 0.2s ease-out;
+      overflow: hidden;
     }
 
     .unblur {
@@ -29,6 +30,11 @@ class TranslationItem extends LitElement {
 
     .translation {
       font-weight: 500;
+      filter: blur(10px);
+    }
+
+    li:hover .translation {
+      filter: blur(0px);
     }
 
     .highlighted {
@@ -41,10 +47,6 @@ class TranslationItem extends LitElement {
     this.entry = {};
     this.highlighted = false;
     this.isBlurred = true;
-    this.addEventListener('mousedown', this.handleMouseDown.bind(this));
-    this.addEventListener('mouseup', this.handleMouseUp.bind(this));
-    this.addEventListener('touchstart', this.handleMouseDown.bind(this));
-    this.addEventListener('touchend', this.handleMouseUp.bind(this));
   }
 
   static get properties() {
@@ -56,26 +58,15 @@ class TranslationItem extends LitElement {
 
   render() {
     return html`
-      <li class="${this.highlighted ? 'highlighted' : ''}">
+      <li>
         <span>${this.entry.fr}</span>
-        <span class="${this.isBlurred ? '' : 'unblur'} blurred translation">${
+        <span class="translation">${
       this.entry.es
     }</span>
       </li>
     `;
   }
 
-  handleMouseDown(event) {
-    event.preventDefault();
-    this.isBlurred = false; // Unblur on mouse down
-    this.requestUpdate('isBlurred', true); // Manually trigger an update
-  }
-
-  handleMouseUp(event) {
-    event.preventDefault();
-    this.isBlurred = true; // Blur again on mouse up
-    this.requestUpdate('isBlurred', false); // Manually trigger an update
-  }
 }
 
 customElements.define('translation-item', TranslationItem);
