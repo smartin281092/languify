@@ -57,7 +57,7 @@ class TranslationItem extends LitElement {
 
   render() {
     return html`
-      <li>
+      <li class="${this.highlighted == true ? 'highlighted' : ''}">
         <span>${this.entry.fr}</span>
         <span class="translation">${
       this.entry.es
