@@ -65,12 +65,14 @@ class TranslationItem extends LitElement {
     `;
   }
 
-  handleMouseDown() {
+  handleMouseDown(event) {
+    event.preventDefault();
     this.isBlurred = false; // Unblur on mouse down
     this.requestUpdate('isBlurred', true); // Manually trigger an update
   }
 
-  handleMouseUp() {
+  handleMouseUp(event) {
+    event.preventDefault();
     this.isBlurred = true; // Blur again on mouse up
     this.requestUpdate('isBlurred', false); // Manually trigger an update
   }
