@@ -1,5 +1,5 @@
 // Load your JSON data
-fetch('./src/assets/hercule-fr-es.json')
+fetch('hercule-fr-es.json')
   .then((response) => response.json())
   .then((data) => {
     console.log('loaded');
