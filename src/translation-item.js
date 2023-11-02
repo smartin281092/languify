@@ -17,7 +17,6 @@ class TranslationItem extends LitElement {
 
     span {
       transition: all 0.2s ease-out;
-      overflow: hidden;
     }
 
     .unblur {
